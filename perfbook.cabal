@@ -1,0 +1,71 @@
+cabal-version:      3.4
+name:               perfbook
+version:            0.1.0.0
+license:            CC-BY-4.0
+license-file:       LICENSE
+author:             Hécate Moonlight
+maintainer:         hecate+github@glitchbra.in
+build-type:         Simple
+extra-doc-files:    CHANGELOG.md
+
+
+common ghc-options
+  ghc-options:
+    -Wall -Wcompat -Widentities -Wincomplete-record-updates
+    -Wincomplete-uni-patterns -Wpartial-fields -Wredundant-constraints
+    -fhide-source-paths -Wno-unused-do-bind -fshow-hole-constraints
+    -Wno-unticked-promoted-constructors -Werror=unused-imports
+    -Wunused-packages
+
+common rts-options
+  ghc-options: -rtsopts -threaded "-with-rtsopts=-N -T"
+
+common extensions
+  default-extensions:
+    NoStarIsType
+    DataKinds
+    DeriveAnyClass
+    DerivingStrategies
+    DerivingVia
+    DuplicateRecordFields
+    LambdaCase
+    OverloadedLabels
+    OverloadedRecordDot
+    OverloadedStrings
+    PackageImports
+    PolyKinds
+    QuasiQuotes
+    RecordWildCards
+    StrictData
+    TypeFamilies
+    UndecidableInstances
+    ViewPatterns
+
+  default-language:   GHC2021
+
+library
+    import:           ghc-options
+    import:           extensions
+    exposed-modules:
+      About01.About00
+      About01.Tools01
+    build-depends:    base ^>=4.16.3.0
+    hs-source-dirs:   src/Book
+    default-language: GHC2021
+
+executable perfbook-gen
+    import:           ghc-options
+    import:           rts-options
+    import:           extensions
+    main-is:          Main.hs
+    build-depends:
+      , base ^>=4.16.3.0
+      , perfbook
+      , literatex
+      , shake
+      , directory
+      , filepath
+      , containers
+
+    hs-source-dirs:   app
+    default-language: GHC2021

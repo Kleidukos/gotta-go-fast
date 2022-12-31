@@ -1,0 +1,16 @@
+&
+.DS_Store
+.envrc
+.hie
+.vscode/
+/.stack-work/
+<
+Session.vim
+cabal.project.local
+tags
+tags.lock
+tags.mtime
+!book-src/SUMMARY.md
+!book-src/CONTRIBUTORS.md
+_build
+.shake
