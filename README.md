@@ -1,3 +1,27 @@
+WIP, Don't use, don't observe, there is only pain and experimental chemicals here.
+
+# First, install:
+
+* [literatex](https://flora.pm/packages/@hackage/literatex#installation)
+* [mdbook](https://rust-lang.github.io/mdBook/guide/installation.html)
+
+# Then:
+
+To compile the code
+
+```bash
+$ cabal build
+```
+
+To process the markdown
+
+```bash
+$ cabal run -- perfbook-gen process
+```
+
+---
+
+
 # Haskell Performance Tuning Book
 
 - [Goals and Focus](#goals-and-focus)
