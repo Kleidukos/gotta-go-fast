@@ -19,6 +19,16 @@ To process the markdown
 $ cabal run -- perfbook-gen process
 ```
 
+## Full-prose modules
+
+Add this annotation on line two of the module if you want to hide the `module X where` at the top of the file:
+
+```
+module Chapter01.About00 where -- ← This is the module declaration we want to hide
+{-# ANN module False #-} -- ← This will be processed after the markdown file is produced, and the first 5 lines
+                         -- of the file will be stripped.
+```
+
 ---
 
 

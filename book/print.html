@@ -81,7 +81,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="01-about/00About.html"><strong aria-hidden="true">1.</strong> About this book</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="01-about/01Tools.html"><strong aria-hidden="true">1.1.</strong> Our toolbox</a></li></ol></li><li class="chapter-item expanded "><a href="02-gotta_go_fast/00GottaGoFast.md.html"><strong aria-hidden="true">2.</strong> What makes programs go fast?</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="02-gotta_go_fast/01Evaluation.html"><strong aria-hidden="true">2.1.</strong> Evaluation in Haskell</a></li><li class="chapter-item expanded "><a href="02-gotta_go_fast/02Allocation.html"><strong aria-hidden="true">2.2.</strong> Allocation and data representation in Haskell</a></li><li class="chapter-item expanded "><a href="02-gotta_go_fast/03Pptimizations.html"><strong aria-hidden="true">2.3.</strong> GHC optimizations</a></li></ol></li><li class="chapter-item expanded "><a href="03-classifications/00Classifications.html"><strong aria-hidden="true">3.</strong> Classifying performance issues</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><a href="CONTRIBUTORS.html">Contributors</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="01-about/About00.html"><strong aria-hidden="true">1.</strong> About this book</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="01-about/Tools01.html"><strong aria-hidden="true">1.1.</strong> Our toolbox</a></li></ol></li><li class="chapter-item expanded "><a href="02-gotta_go_fast/GottaGoFast00.html"><strong aria-hidden="true">2.</strong> What makes programs go fast?</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="02-gotta_go_fast/Evaluation01.html"><strong aria-hidden="true">2.1.</strong> Evaluation in Haskell</a></li><li class="chapter-item expanded "><a href="02-gotta_go_fast/Allocation02.html"><strong aria-hidden="true">2.2.</strong> Allocation and data representation in Haskell</a></li><li class="chapter-item expanded "><a href="02-gotta_go_fast/Optimizations03.html"><strong aria-hidden="true">2.3.</strong> GHC optimizations</a></li></ol></li><li class="chapter-item expanded "><a href="03-classifications/Classifications00.html"><strong aria-hidden="true">3.</strong> Classifying performance issues</a></li><li class="chapter-item expanded "><a href="04-finding_issues/Profiling00.html"><strong aria-hidden="true">4.</strong> Finding performance issues using profiling</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="04-finding_issues/CostCenterProfiling01.html"><strong aria-hidden="true">4.1.</strong> Cost-center profiling</a></li><li class="chapter-item expanded "><a href="04-finding_issues/HeapProfiling02.md.html"><strong aria-hidden="true">4.2.</strong> Heap profiling</a></li></ol></li><li class="chapter-item expanded "><a href="05-testing/Testing00.html"><strong aria-hidden="true">5.</strong> Automated testing for performance regressions</a></li><li class="chapter-item expanded "><a href="06-case_studies/CaseStudies00.html"><strong aria-hidden="true">6.</strong> Case studies</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="06-case_studies/Parsing01.html"><strong aria-hidden="true">6.1.</strong> Parsing and processing</a></li><li class="chapter-item expanded "><a href="06-case_studies/Streaming02.html"><strong aria-hidden="true">6.2.</strong> Streaming</a></li><li class="chapter-item expanded "><a href="06-case_studies/Web03.html"><strong aria-hidden="true">6.3.</strong> Web service</a></li><li class="chapter-item expanded "><a href="06-case_studies/Architecture04.html"><strong aria-hidden="true">6.4.</strong> Architecture</a></li></ol></li><li class="chapter-item expanded "><a href="07-conclusion/Next00.html"><strong aria-hidden="true">7.</strong> Where to go next</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><a href="CONTRIBUTORS.html">Contributors</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -171,6 +171,11 @@ using case studies.</p>
 <h2 id="ghc-event-analyze"><a class="header" href="#ghc-event-analyze"><a href="https://hackage.haskell.org/package/ghc-events-analyze">ghc-event-analyze</a></a></h2>
 <p>A profile tool that uses GHC's eventlog system. It is useful for profiling code when GHC's normal profiling mode is not available, or when using profiling mode would perturb the code too much. It is also useful when you want time-profiling information with a breakdown over time rather than totals for the whole run.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="what-makes-programs-go-fast"><a class="header" href="#what-makes-programs-go-fast">What makes programs go fast?</a></h1>
+<p>In this chapter we'll explore how Haskell behaves under the hood.</p>
+<p>We'll take a look at Haskell's evaluation semantics,
+laziness/strictness and how to control it, how to represent
+data wrt performance, allocation and its affect on performance,
+how various GHC affect performance, and more.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="evaluation-in-haskell"><a class="header" href="#evaluation-in-haskell">Evaluation in Haskell</a></h1>
 <p>In this section we'll take a look at Haskell's evaluation semantics,
 laziness, strictness and how they affect performance, and what
@@ -180,6 +185,67 @@ to avoid.</p>
 of programs, and how to keep it under control.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="ghc-optimizations"><a class="header" href="#ghc-optimizations">GHC optimizations</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="classifying-performance-issues"><a class="header" href="#classifying-performance-issues">Classifying performance issues</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="finding-performance-issues-using-profiling"><a class="header" href="#finding-performance-issues-using-profiling">Finding performance issues using profiling</a></h1>
+<p>In this chapter we'll explore various tools and techniques currently
+available to us in order to identify the causes of performance problems.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="cost-center-profiling"><a class="header" href="#cost-center-profiling">Cost-center profiling</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="heap-profiling"><a class="header" href="#heap-profiling">Heap profiling</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="automated-testing-for-performance-regressions"><a class="header" href="#automated-testing-for-performance-regressions">Automated testing for performance regressions</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="case-studies"><a class="header" href="#case-studies">Case studies</a></h1>
+<p>In the chapter we'll show how to tackle performance issues step-by-step
+by exploring case studies.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="parsing-and-processing"><a class="header" href="#parsing-and-processing">Parsing and processing</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="streaming"><a class="header" href="#streaming">Streaming</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="web-service"><a class="header" href="#web-service">Web service</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="architecture"><a class="header" href="#architecture">Architecture</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="where-to-go-next"><a class="header" href="#where-to-go-next">Where to go next</a></h1>
+<p>For now this will be a list of references</p>
+<h2 id="understanding-haskell"><a class="header" href="#understanding-haskell">Understanding Haskell</a></h2>
+<ul>
+<li><a href="https://www.slideshare.net/tibbe/highperformance-haskell">High-performance Haskell</a></li>
+<li><a href="https://www.youtube.com/watch?v=-MFk7PIKYsg">Low-level Haskell (STG)</a></li>
+<li><a href="https://www.youtube.com/watch?v=McFNkLPTOSY">Intro to low-level Haskell Optimization</a></li>
+<li><a href="https://github.com/soupi/haskell-study-plan#general">Performance section in hsp</a></li>
+<li><a href="https://takenobu-hs.github.io/downloads/haskell_ghc_illustrated.pdf">Haskell ghc illustrated</a></li>
+</ul>
+<h2 id="performance-tips"><a class="header" href="#performance-tips">Performance tips</a></h2>
+<ul>
+<li><a href="https://ghc.readthedocs.io/en/latest/sooner.html#faster-producing-a-program-that-runs-quicker">GHC - Producing a program that runs quicker</a></li>
+<li><a href="https://www.reddit.com/r/haskell/comments/nl0rkl/looking_for_good_rules_of_thumbs_on_what_haskell/">Good rules of thumbs (Reddit discussion)</a></li>
+<li><a href="https://serokell.io/blog/haskell-to-core">Haskell to Core: Understanding Haskell Features Through Their Desugaring</a></li>
+<li><a href="https://www.youtube.com/watch?v=eYJGeUqOCm4">Ideas for optimizing Haskell</a></li>
+</ul>
+<h2 id="profiling"><a class="header" href="#profiling">Profiling</a></h2>
+<ul>
+<li><a href="https://downloads.haskell.org/ghc/latest/docs/html/users_guide/profiling.html">GHC - profiling</a></li>
+<li><a href="https://www.fpcomplete.com/haskell/tutorial/profiling/">FP Complete/profiling</a></li>
+<li><a href="https://sriramsami.com/haskell-optimization/">Optimizing Haskell Programs methodology</a></li>
+<li><a href="https://well-typed.com/blog/2020/08/memory-fragmentation/">Memory fragmentation</a> &amp; <a href="https://well-typed.com/blog/2021/01/fragmentation-deeper-look/">deeper look</a></li>
+<li><a href="https://github.com/soupi/haskell-study-plan#profiling">Profiling section in hsp</a></li>
+</ul>
+<h3 id="tools"><a class="header" href="#tools">Tools</a></h3>
+<ul>
+<li><a href="https://github.com/jaspervdj/profiteur">profiteur</a></li>
+<li><a href="https://github.com/ndmitchell/profiterole">profiterole</a></li>
+<li><a href="https://well-typed.com/blog/2021/01/first-look-at-hi-profiling-mode/">Info table profiling</a></li>
+<li>Memory usage zurihac 2021 <a href="https://github.com/well-typed/memory-usage-zurihac-2021">repo</a> and <a href="https://www.youtube.com/watch?v=6Ljv5FHGXDM&amp;t=1981s">talk</a></li>
+<li><a href="https://www.youtube.com/watch?v=9zuAsGk9xoM">ghc-debug</a></li>
+<li><a href="https://well-typed.com/blog/2014/02/ghc-events-analyze/">ghc-events-analyze</a></li>
+<li><a href="https://well-typed.com/blog/2019/09/eventful-ghc/">eventful ghc</a></li>
+<li><a href="https://github.com/mpickering/eventlog2html">eventlog2html</a></li>
+</ul>
+<h2 id="case-studies-1"><a class="header" href="#case-studies-1">Case studies</a></h2>
+<ul>
+<li><a href="https://github.com/soupi/haskell-study-plan#case-studies">Performance case studies section in hsp</a></li>
+<li><a href="https://www.youtube.com/watch?v=0jI-AlWEwYI">Effects for less</a></li>
+<li><a href="https://well-typed.com/blog/2016/09/sharing-conduit/">Sharing, Space Leaks, and Conduit and friends</a></li>
+</ul>
+<h2 id="automated-testing"><a class="header" href="#automated-testing">Automated testing</a></h2>
+<ul>
+<li><a href="https://hackage.haskell.org/package/criterion">Criterion</a></li>
+<li><a href="https://github.com/Bodigrim/tasty-bench">Tasty-bench</a></li>
+<li><a href="https://hackage.haskell.org/package/inspection-testing">inspection-testing</a></li>
+</ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="contributors"><a class="header" href="#contributors">Contributors</a></h1>
 
                     </main>

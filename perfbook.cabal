@@ -47,8 +47,12 @@ library
     import:           ghc-options
     import:           extensions
     exposed-modules:
-      About01.About00
-      About01.Tools01
+      Chapter01.About00
+      Chapter01.Tools01
+      Chapter02.GottaGoFast00
+      Chapter02.Evaluation01
+      Chapter02.Allocation02
+      Chapter02.Optimisations03
     build-depends:    base ^>=4.16.3.0
     hs-source-dirs:   src/Book
     default-language: GHC2021
@@ -60,12 +64,11 @@ executable perfbook-gen
     main-is:          Main.hs
     build-depends:
       , base ^>=4.16.3.0
-      , perfbook
       , literatex
       , shake
       , directory
-      , filepath
       , containers
+      , strict
 
     hs-source-dirs:   app
     default-language: GHC2021
