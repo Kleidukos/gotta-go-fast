@@ -1,4 +1,4 @@
-module Chapter02.Allocation02 where
+module Book.Chapter02.Allocation02 where
 {-# ANN module False #-}
 -- # Allocation and data representation in Haskell
 

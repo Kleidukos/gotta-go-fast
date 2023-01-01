@@ -1,4 +1,4 @@
-module Chapter03.Classification03 where
+module Book.Chapter03.Classification03 where
 {-# ANN module False #-}
 -- # Classifying performance issues
 

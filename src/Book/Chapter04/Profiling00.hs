@@ -1,4 +1,4 @@
-module Chapter04.Profiling00 where
+module Book.Chapter04.Profiling00 where
 {-# ANN module False #-}
 -- # Finding performance issues using profiling
 

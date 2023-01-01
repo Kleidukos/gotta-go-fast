@@ -1,4 +1,4 @@
-module Chapter02.Evaluation01 where
+module Book.Chapter02.Evaluation01 where
 {-# ANN module False #-}
 -- # Evaluation in Haskell
 

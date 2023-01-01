@@ -1,4 +1,4 @@
-module Chapter01.About00 where
+module Book.Chapter01.About00 where
 {-# ANN module False #-}
 -- # About this book
 

@@ -1,4 +1,4 @@
-module Chapter01.Tools01 where
+module Book.Chapter01.Tools01 where
 {-# ANN module False #-}
 
 -- # Our toolbox

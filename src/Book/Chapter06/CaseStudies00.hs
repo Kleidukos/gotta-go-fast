@@ -1,4 +1,4 @@
-module Chapter06.CaseStudies00 where
+module Book.Chapter06.CaseStudies00 where
 {-# ANN module False #-}
 -- # Case studies
 

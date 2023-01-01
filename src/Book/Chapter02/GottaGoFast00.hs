@@ -1,4 +1,4 @@
-module Chapter02.GottaGoFast00 where
+module Book.Chapter02.GottaGoFast00 where
 {-# ANN module False #-}
 -- # What makes programs go fast?
 

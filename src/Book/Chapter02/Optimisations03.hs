@@ -1,4 +1,4 @@
-module Chapter02.Optimisations03 where
+module Book.Chapter02.Optimisations03 where
 {-# ANN module False #-}
 -- # GHC optimizations and you
 

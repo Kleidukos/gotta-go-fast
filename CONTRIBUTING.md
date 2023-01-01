@@ -148,10 +148,3 @@ cabal build
 cabal run -- perfbook-gen process
 mdbook serve --open
 ```
-
-The content of the book can be found in the `book-src/` directory, editing
-the markdown texts while `mdbook serve` is running will automatically
-re-render the book on file save, to be viewed locally here: 
-[http://localhost:3000](http://localhost:3000).
-
-

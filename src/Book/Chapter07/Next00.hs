@@ -1,4 +1,4 @@
-module Chapter07.Next00 where
+module Book.Chapter07.Next00 where
 {-# ANN module False #-}
 -- # Where to go next
 
