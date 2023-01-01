@@ -32,6 +32,17 @@ This could be:
   a certain topic
 - Something else?
 
+#### Full-prose modules
+
+Add this annotation on line two of the module if you want to hide the `module X where`
+at the top of the rendered file:
+
+```
+module Chapter01.About00 where -- ← This is the module declaration we want to hide
+{-# ANN module False #-} -- ← This will be processed after the markdown file is produced,
+                         -- and the first 5 lines of the file will be stripped.
+```
+
 [Let us know if you are interested!](#how-to-volunteer)
 
 ### As a reviewer
@@ -133,10 +144,12 @@ to be viewed by a web browser.
 ```sh
 git clone https://github.com/haskellfoundation/gotta-go-fast
 cd gotta-go-fast
-mdbook serve
+cabal build
+cabal run -- perfbook-gen process
+mdbook serve --open
 ```
 
-The content of the book can be found in the `src/` directory, editing
+The content of the book can be found in the `book-src/` directory, editing
 the markdown texts while `mdbook serve` is running will automatically
 re-render the book on file save, to be viewed locally here: 
 [http://localhost:3000](http://localhost:3000).
