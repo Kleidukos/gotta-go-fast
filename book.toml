@@ -2,8 +2,9 @@
 title = "Haskell Performance Tuning Book"
 authors = ["Gil Mizrahi"]
 language = "en"
-multilingual = false
 src = "book-src"
+
+[output.html]
 git-repository-url = "https://github.com/haskellfoundation/gotta-go-fast"
 git-repository-icon = "fa-github"
 edit-url-template = "https://github.com/haskellfoundation/gotta-go-fast/edit/main/{path}"
